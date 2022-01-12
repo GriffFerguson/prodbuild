@@ -1,6 +1,6 @@
 {
   "name": "Hardhat-js",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
   "main": "index.js",
   "scripts": {
