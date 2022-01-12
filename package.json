@@ -11,6 +11,7 @@
   "dependencies": {
     "cssnano": "^5.0.14",
     "cssnano-preset-advanced": "^5.1.10",
+    "html-minifier-terser": "^7.0.0-alpha.1",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "terser": "^5.10.0"

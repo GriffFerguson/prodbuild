@@ -1,0 +1,9 @@
+{
+    "output": "../../dist/",
+    "entryRoot": "../",
+    "entry": {
+        "styles": "styles/",
+        "scripts": "scripts/",
+        "pages": "./"
+    }
+}
