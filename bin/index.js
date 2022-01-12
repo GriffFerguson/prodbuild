@@ -11,9 +11,16 @@ function run(script, callback) {
     var process = childProcess.fork(script)
 
     process.on('error', err => {
-        if (completed) {
+        if (!completed) {
             console.log(err)
             completed = true;
+        }
+    })
+
+    process.on('exit', err => {
+        if (!completed) {
+            console.log('Completed process')
+            completed = true
         }
     })
 }
@@ -26,7 +33,7 @@ program
     .command('build')
     .description('build the website into the specified folder')
     .action(() => {
-        console.log(path.join(__dirname, '../lib/build.js'))
+        console.log('Starting build script...')
         run(path.join(__dirname, '../lib/build.js'))
     })
 
