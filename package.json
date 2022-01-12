@@ -2,9 +2,17 @@
   "name": "flatpack",
   "version": "0.1.1",
   "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/GriffFerguson/flatpack#readme",
+  "bugs": {
+    "url": "https://github.com/GriffFerguson/flatpack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GriffFerguson/flatpack.git"
   },
   "bin": {
     "flatpack": "./bin/index.js"
