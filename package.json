@@ -1,14 +1,18 @@
 {
-  "name": "build-script",
+  "name": "Hardhat",
   "version": "1.0.0",
   "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "hardhat": "./bin/index.js"
+  },
   "author": "Griffin Ferguson",
   "license": "ISC",
   "dependencies": {
+    "commander": "^8.3.0",
     "cssnano": "^5.0.14",
     "cssnano-preset-advanced": "^5.1.10",
     "html-minifier-terser": "^7.0.0-alpha.1",
