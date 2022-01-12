@@ -1,5 +1,5 @@
 {
-  "name": "Hardhat-js",
+  "name": "flatpack",
   "version": "0.1.1",
   "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
   "main": "index.js",
@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "hardhat": "./bin/index.js"
+    "flatpack": "./bin/index.js"
   },
   "author": "Griffin Ferguson",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "commander": "^8.3.0",
     "cssnano": "^5.0.14",
