@@ -1,6 +1,6 @@
 {
   "name": "flatpack",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
   "main": "lib/index.js",
   "scripts": {
