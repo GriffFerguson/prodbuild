@@ -27,7 +27,7 @@ function run(script, callback) {
 
 program
     .version('0.0.1')
-    .description('CLI for Hardhat')
+    .description('CLI for Flatpack')
 
 program
     .command('build')
