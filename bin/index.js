@@ -34,7 +34,7 @@ program
     .description('build the website into the specified folder')
     .action(() => {
         console.log('Starting build script...')
-        run(path.join(__dirname, '../lib/build.js'))
+        run('node_modules/flatpack/lib/build.js')
     })
 
 program.parse(process.argv)
