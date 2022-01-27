@@ -36,5 +36,13 @@ program
         console.log('Starting build script...')
         run('node_modules/flatpack/lib/build.js')
     })
+    
+program
+    .command('serve')
+    .description('start the development server')
+    .action(() => {
+        console.log('Starting build server...')
+        run('node_modules/flatpack/lib/server.js')
+    })
 
 program.parse(process.argv)

@@ -1,9 +1,5 @@
 {
     "output": "./dist/",
     "entryRoot": "./src",
-    "entry": {
-        "styles": "styles/",
-        "scripts": "scripts/",
-        "pages": "./"
-    }
+    "port": 6000
 }

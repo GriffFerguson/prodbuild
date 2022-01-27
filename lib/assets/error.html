@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Flatpack</title>
+    <style>
+        body {
+            margin:0;
+            background-color: rgb(92, 190, 197);
+            display:flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+            height:100vh;
+        }
+        h1, p {
+            font-family: sans-serif;
+            text-align: center;
+            font-weight: bolder;
+            color:rgb(50,50,50)
+        }
+        h1 {font-size:3vw;}
+        p {font-size: 1vw;}
+        #dir {
+            font-family: monospace;
+            font-weight: unset;
+        }
+    </style>
+</head>
+<body>
+    <h1>Whoops! Flatpack encountered an error while accessing that file!</h1>
+    <p>Make sure the file exists at the specified path of '<span id="dir"></span>'</p>
+    <script>
+        document.getElementById('dir').innerText = window.location.pathname
+    </script>
+</body>
+</html>
