@@ -6,13 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/GriffFerguson/flatpack#readme",
+  "homepage": "https://github.com/GriffFerguson/prodbuild#readme",
   "bugs": {
-    "url": "https://github.com/GriffFerguson/flatpack/issues"
+    "url": "https://github.com/GriffFerguson/prodbuild/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GriffFerguson/flatpack.git"
+    "url": "https://github.com/GriffFerguson/prodbuild.git"
   },
   "bin": {
     "prodbuild": "./bin/index.js"
