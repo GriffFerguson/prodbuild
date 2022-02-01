@@ -1,7 +1,7 @@
 {
-  "name": "flatpack",
+  "name": "prodbuild",
   "version": "1.0.0",
-  "description": "Package or other packages to quickly and easily minify and optimize JS, HTML, and CSS",
+  "description": "Quickly and easily create a production-ready website",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
     "url": "https://github.com/GriffFerguson/flatpack.git"
   },
   "bin": {
-    "flatpack": "./bin/index.js"
+    "prodbuild": "./bin/index.js"
   },
   "author": "Griffin Ferguson",
   "license": "MIT",

@@ -1,3 +1,3 @@
-# Flatpack
+# Prodbuild
 
-Compliation of different minifiers, uglifiers, etc, to produce a propriety packaging library for my projects.
+Easy-to-use minifier and WIP bundler for no-framework websites.

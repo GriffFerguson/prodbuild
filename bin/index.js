@@ -27,14 +27,14 @@ function run(script, callback) {
 
 program
     .version('0.0.1')
-    .description('CLI for Flatpack')
+    .description('CLI for Prodbuild')
 
 program
     .command('build')
     .description('build the website into the specified folder')
     .action(() => {
         console.log('Starting build script...')
-        run('node_modules/flatpack/lib/build.js')
+        run('node_modules/prodbuild/lib/build.js')
     })
     
 program
@@ -42,7 +42,7 @@ program
     .description('start the development server')
     .action(() => {
         console.log('Starting build server...')
-        run('node_modules/flatpack/lib/server.js')
+        run('node_modules/prodbuild/lib/server.js')
     })
 
 program.parse(process.argv)
