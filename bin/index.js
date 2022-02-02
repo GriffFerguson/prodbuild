@@ -2,7 +2,7 @@
 
 const childProcess = require('child_process')
 const path = require('path')
-const { Command } = require('commander');
+const { Command, opts } = require('commander');
 const program = new Command();
 
 function run(script, callback) {
@@ -40,9 +40,15 @@ program
 program
     .command('serve')
     .description('start the development server')
+    .option('--prod', 'run the server root as the production folder')
     .action(() => {
+        var opts = opts()
         console.log('Starting build server...')
-        run('node_modules/prodbuild/lib/server.js')
+        if (opts.prod == true) {
+            run(`node_modules/prodbuild/lib/server.js --prod`)
+        } else {
+            run(`node_modules/prodbuild/lib/server.js --dev`)
+        }
     })
 
 program.parse(process.argv)
