@@ -1,6 +1,6 @@
 #! /bin/env node
 
-const childProcess = require('child_process')
+const { fork } = require('child_process')
 const path = require('path')
 const { Command } = require('commander');
 const program = new Command();
@@ -9,7 +9,7 @@ function run(script, args) {
     args = args || ''
     var completed = false;
 
-    var process = childProcess.fork(script, args)
+    var process = fork(script, args)
 
     process.on('error', err => {
         if (!completed) {
@@ -41,11 +41,11 @@ program
 program
     .command('serve')
     .description('start the development server')
-    .option('--prod', 'run the server root as the production (output) folder', false)
-    .option('--dev', '(default) run the server root as the development (entry) folder', true)
+    .option('--prod', 'run the server root as the production (output) folder')
+    .option('--dev', '(default) run the server root as the development (entry) folder')
     .action((name, options) => {
         console.log('Starting build server...')
-        if (options.prod == true) {
+        if (options.parent.args[1] == '--prod') {
             run(`node_modules/prodbuild/lib/server.js`, ['--prod'])
         } else {
             run(`node_modules/prodbuild/lib/server.js`, ['--dev'])
