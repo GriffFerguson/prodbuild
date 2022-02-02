@@ -2,13 +2,14 @@
 
 const childProcess = require('child_process')
 const path = require('path')
-const { Command, opts } = require('commander');
+const { Command } = require('commander');
 const program = new Command();
 
-function run(script, callback) {
+function run(script, args) {
+    args = args || ''
     var completed = false;
 
-    var process = childProcess.fork(script)
+    var process = childProcess.fork(script, args)
 
     process.on('error', err => {
         if (!completed) {
@@ -26,7 +27,7 @@ function run(script, callback) {
 }
 
 program
-    .version('0.0.1')
+    .version('1.2.1')
     .description('CLI for Prodbuild')
 
 program
@@ -40,14 +41,14 @@ program
 program
     .command('serve')
     .description('start the development server')
-    .option('--prod', 'run the server root as the production folder')
-    .action(() => {
-        var opts = opts()
+    .option('--prod', 'run the server root as the production (output) folder', false)
+    .option('--dev', '(default) run the server root as the development (entry) folder', true)
+    .action((name, options) => {
         console.log('Starting build server...')
-        if (opts.prod == true) {
-            run(`node_modules/prodbuild/lib/server.js --prod`)
+        if (options.prod == true) {
+            run(`node_modules/prodbuild/lib/server.js`, ['--prod'])
         } else {
-            run(`node_modules/prodbuild/lib/server.js --dev`)
+            run(`node_modules/prodbuild/lib/server.js`, ['--dev'])
         }
     })
 
