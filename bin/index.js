@@ -6,7 +6,7 @@ const { Command } = require('commander');
 const program = new Command();
 
 function run(script, args) {
-    args = args || ''
+    args = args || []
     var completed = false;
 
     var process = fork(script, args)
