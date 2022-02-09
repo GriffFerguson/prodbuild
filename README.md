@@ -3,7 +3,7 @@
 Easy-to-use minifier and WIP bundler for no-framework websites.
 
 ## Documentation
-Please operate prodbuild out of the root folder of your project.
+Please operate Prodbuild out of the root folder of your project.
 
 ### Install
 `npm i --save-dev prodbuild`
@@ -14,7 +14,7 @@ Please operate prodbuild out of the root folder of your project.
 - Output: the path, relative to the project root folder, to the folder to emit all processed files to
 - Port: specify the port for the dev-server
 
-If no build.config.json is available in the active directory, the defauly values will be used.
+If no build.config.json is available in the active directory, the default values will be used.
 
 Default values:
 ```json
