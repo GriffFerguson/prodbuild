@@ -1,5 +1,8 @@
 # Prodbuild Change Log
 
+## v1.4.0
+- Add TypeScript support
+
 ## v1.3.2
 - Add change log
 - Fix typos in README
