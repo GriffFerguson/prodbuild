@@ -1,5 +1,9 @@
 # Prodbuild Change Log
 
+## v1.3.2
+- Add change log
+- Fix typos in README
+
 ## v1.3.1
 - Add folder exclsuion
 - Remove console messages used for debugging
