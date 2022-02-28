@@ -1,4 +1,5 @@
 # Prodbuild
+![npm](https://img.shields.io/npm/v/prodbuild)
 
 Easy-to-use minifier and WIP bundler for no-framework websites.
 
@@ -13,6 +14,7 @@ Please operate Prodbuild out of the root folder of your project.
 - Entry: the path, relative to the project root folder, to the folder containing all source files.
 - Output: the path, relative to the project root folder, to the folder to emit all processed files to
 - Port: specify the port for the dev-server
+- Exclude: exclude folders and files, written as an array of strings
 
 If no build.config.json is available in the active directory, the default values will be used.
 
@@ -25,12 +27,12 @@ Default values:
 }
 ```
 
-### `prodbuild build`
+### `npx prodbuild build`
 Minifies and uglifies all HTML, CSS, and JS files in the specified entry folder (default is './src/') and emits all files to the specified output folder (default is './dist/').
 
 See the above section for information regarding entry and output folders.
 
-### `prodbuild serve`
+### `npx prodbuild serve`
 Start the dev server at the specified port (default is 5000).
 
 **Options**:
