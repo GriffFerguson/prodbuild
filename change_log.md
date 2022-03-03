@@ -1,5 +1,8 @@
 # Prodbuild Change Log
 
+## v1.4.1
+- Fix errors when processing TypeScript
+
 ## v1.4.0
 - Add TypeScript support
 
