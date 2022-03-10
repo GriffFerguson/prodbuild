@@ -1,5 +1,11 @@
 # Prodbuild Change Log
 
+## v1.5.0
+- Add proprietary minifier for HTML
+- Add proprietary minifier for CSS
+- Minifiers can now be imported
+- Add TypeScript declarations for minifier functions
+
 ## v1.4.1
 - Fix errors when processing TypeScript
 
