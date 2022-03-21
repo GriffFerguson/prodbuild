@@ -4,7 +4,7 @@ const { fork } = require('child_process')
 const path = require('path')
 const { Command } = require('commander');
 const program = new Command();
-const {version} = require('../package.json')
+const {version} = require(path.join('.', '../package.json'))
 
 function run(script, args) {
     args = args || []
@@ -28,7 +28,7 @@ function run(script, args) {
 }
 
 program
-    .version(version)
+    .version(`prodbuild@${version}`)
     .description('CLI for Prodbuild')
 
 program
