@@ -7,7 +7,8 @@
   "scripts": {
     "test": "node test/index.js",
     "test:build": "node test/index.js --build",
-    "test:serve": "node test/index.js --serve"
+    "test:serve:dev": "node test/index.js --serve --dev",
+    "test:serve:prod": "node test/index.js --serve --prod"
   },
   "homepage": "https://github.com/GriffFerguson/prodbuild#readme",
   "bugs": {
