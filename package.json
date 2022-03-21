@@ -5,7 +5,9 @@
   "main": "lib/minify.js",
   "types": "./lib/assets/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js",
+    "test:build": "node test/index.js --build",
+    "test:serve": "node test/index.js --serve"
   },
   "homepage": "https://github.com/GriffFerguson/prodbuild#readme",
   "bugs": {

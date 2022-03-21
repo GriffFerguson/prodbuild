@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem, ipsum.</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script>
+        function addElem() {
+            elem = document.createElement('p')
+            elem.style.fontSize = '25px'
+            elem.innerText = 'New Element'
+            document.body.appendChild(elem)   
+        }
+    </script>
+</head>
+<body onload="addElem()">
+    <h1>Lorem, ipsum dolor.</h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum laudantium vel quasi, iure natus repellendus nihil porro commodi? Unde ducimus eligendi cum ab dolorem, iste aut error quo eos sit aliquid nihil doloremque iusto, quidem laudantium dolores voluptatem quasi tempora, illo quae. Itaque dolor rem non aperiam dolores libero.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ullam aperiam fugit mollitia voluptatem dolorum, reprehenderit explicabo totam numquam delectus?<br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, voluptates!</p>
+    <script>
+        setTimeout(() => {
+            for(var e in document.getElementsByTagName('p')) {
+                e.style.color = 'lightgray'
+            }
+        }, 1500)
+    </script>
+</body>
+</html>
