@@ -1,5 +1,9 @@
 # Prodbuild Change Log
 
+## v1.6.0
+- Brand new advanced dev server
+- Update documentation
+
 ## v1.5.0
 - Improve documentation
 - Improve how default config is loaded

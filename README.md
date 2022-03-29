@@ -27,16 +27,19 @@ Default values:
 }
 ```
 
-### `npx prodbuild build`
+### Commands
+#### `npx prodbuild build`
 Minifies and uglifies all HTML, CSS, and JS/TS files in the specified entry folder (default is './src/') and emits all files to the specified output folder (default is './dist/').
 
 See the above section for information regarding entry and output folders.
 
 Note: TypeScript files are transpiled as part of the build process.
 
-### `npx prodbuild serve`
-Start the dev server at the specified port (default is 5000).
+#### `npx prodbuild serve`
+**Arguments**
+- `start`: start the dev server at the specified port (default is 5000). This will open in the folder specified in `config.entry` unless used with `--prod` (see below)
+- `kill`: stop the dev server
 
 **Options**:
-- `--dev` (default): starts the dev server in the entry directory
 - `--prod`: starts the dev server in the production (output) directory
+- `--purge`: purge all messages in `.prodbuildrc/log.txt`
