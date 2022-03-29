@@ -41,16 +41,18 @@ program
     
 program
     .command('serve')
+    .argument('<action>', '\'start\' or \'kill\' the dev server')
     .description('start the development server')
-    .option('--prod', 'run the server root as the production (output) folder')
-    .option('--dev', '(default) run the server root as the development (entry) folder')
-    .action((name, options) => {
+    .option('--prod', 'run the server root as the production (output) folder', false)
+    .option('--purge', 'purge the dev server logs' , false)
+    .action((action, options) => {
         console.log('Starting build server...')
-        if (options.parent.args[1] == '--prod') {
-            run(`node_modules/prodbuild/lib/server.js`, ['--prod'])
-        } else {
-            run(`node_modules/prodbuild/lib/server.js`, ['--dev'])
-        }
+        console.log(options)
+        run(`node_modules/prodbuild/lib/server.js`, [
+            action,
+            options.prod,
+            options.purge
+        ])
     })
 
 program.parse(process.argv)
