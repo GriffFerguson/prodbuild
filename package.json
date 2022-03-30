@@ -1,6 +1,6 @@
 {
   "name": "prodbuild",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Simple and fast packager and development tool for no-framework websites.",
   "main": "lib/minify.js",
   "types": "./lib/assets/index.d.ts",
