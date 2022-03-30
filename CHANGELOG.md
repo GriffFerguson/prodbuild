@@ -1,5 +1,8 @@
 # Prodbuild Change Log
 
+## v1.6.1
+- Fix an issue where a .gitignore file in the root project folder would be overridden on dev server start
+
 ## v1.6.0
 - Brand new advanced dev server
 - Update documentation
