@@ -7,8 +7,10 @@
   "scripts": {
     "test": "node test/index.js",
     "test:build": "node test/index.js --build",
-    "test:serve:dev": "node test/index.js --serve --dev",
-    "test:serve:prod": "node test/index.js --serve --prod"
+    "test:serve:start": "node test/index.js --serveStart",
+    "test:serve:prod": "node test/index.js --serveStart --prod",
+    "test:serve:kill": "node test/index.js --serveKill",
+    "test:serve:purge": "node test/index.js --serveKill --purge"
   },
   "homepage": "https://github.com/GriffFerguson/prodbuild#readme",
   "bugs": {
