@@ -27,6 +27,19 @@ Default values:
 }
 ```
 
+### TypeScript Support
+TypeScript is automatically compiled during build and when being served using the dev server.
+In order to use Prodbuild with TypeScript, simply import the TypeScript file instead of the JavaScript file.
+
+Ex: 
+```html
+<script src="script.ts">
+```
+will be automatically converted to
+```html
+<script src="script.js">
+```
+
 ### Commands
 #### `npx prodbuild build`
 Minifies and uglifies all HTML, CSS, and JS/TS files in the specified entry folder (default is './src/') and emits all files to the specified output folder (default is './dist/').

@@ -1,5 +1,12 @@
 # Prodbuild Change Log
 
+## v1.6.2
+- Add caching system to dev server (basis for hot module replacement)
+- Add TypeScript support to dev server
+- Fix some status messages
+- Prepare to add control panel to dev server
+- TypeScript can be directly imported into HTML files, TypeScript will be compiled and imports will update to point to the new JavaScript file during build (also works with dev server)
+
 ## v1.6.1
 - Fix an issue where a .gitignore file in the root project folder would be overridden on dev server start
 
