@@ -46,7 +46,7 @@ program
     .option('--prod', 'run the server root as the production (output) folder', false)
     .option('--purge', 'purge the dev server logs' , false)
     .action((action, options) => {
-        console.log('Starting build server...')
+        console.log('Changing dev server status...')
         run(`node_modules/prodbuild/lib/server.js`, [
             action,
             options.prod,
