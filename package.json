@@ -1,6 +1,6 @@
 {
   "name": "prodbuild",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Simple and fast packager and development tool for no-framework websites.",
   "scripts": {
     "test": "node test/index.js",
