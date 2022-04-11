@@ -1,5 +1,10 @@
 # Prodbuild Change Log
 
+## v1.6.3
+- CSS minifier now removes comments
+- CSS minifier now removes whitespace correctly
+- HTML minifier also removes comments correctly
+
 ## v1.6.2
 - Add caching system to dev server (basis for hot module replacement)
 - Add TypeScript support to dev server
