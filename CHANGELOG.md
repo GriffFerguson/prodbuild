@@ -1,5 +1,8 @@
 # Prodbuild Change Log
 
+## v1.6.4
+- Binary files are properly supported
+
 ## v1.6.3
 - CSS minifier now removes comments
 - CSS minifier now removes whitespace correctly
