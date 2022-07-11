@@ -1,5 +1,9 @@
 # Prodbuild Change Log
 
+## v1.6.5
+- Proper binary file support for dev server
+- Dev server will no longer throw errors preventing shutdown due to a crash
+
 ## v1.6.4
 - Binary files are properly supported
 
