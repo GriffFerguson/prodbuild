@@ -1,5 +1,10 @@
 # Prodbuild Change Log
 
+## v1.6.6
+- Dev server now restarts correctly if it is unable to shutdown
+- Change some error messages
+- TypeScript support for the dev server works correctly again
+
 ## v1.6.5
 - Proper binary file support for dev server
 - Dev server will no longer throw errors preventing shutdown due to a crash
