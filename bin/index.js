@@ -54,4 +54,11 @@ program
         ])
     })
 
+program
+    .command('init')
+    .description('create a configuration file and the necessary folders for Prodbuild')
+    .action(() => {
+        run(`node_modules/prodbuild/bin/init.js`)
+    })
+
 program.parse(process.argv)
