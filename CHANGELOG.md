@@ -1,5 +1,11 @@
 # Prodbuild Change Log
 
+## v1.6.7
+- Better logging for dev server
+- Dev server no longer restarts (this was much more annoying than intended). Instead an error will be reported and the server will be able to be restarted using the normal start command
+- Fixed an issue where directories were improperly managed resulting in the dev server silently failing
+- Remove caching system (had no real use)
+
 ## v1.6.6
 - Dev server now restarts correctly if it is unable to shutdown
 - Change some error messages

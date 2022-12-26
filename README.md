@@ -4,19 +4,17 @@
 Easy-to-use minifier and WIP bundler for no-framework websites.
 
 ## Documentation
-Please operate Prodbuild out of the root folder of your project.
-
 ### Install
 `npm i --save-dev prodbuild`
 
 ### build.config.json
+This is Prodbuild's config file. The location of this file is considered the project root folder.
+
 **Parameters:**
 - `entry: string`: the path, relative to the project root folder, to the folder containing all source files.
 - `output: string`: the path, relative to the project root folder, to the folder to emit all processed files to
 - `port: integer`: specify the port for the dev-server
 - `exclude: Array<string>`: exclude folders and files, written as an array of strings
-
-If no build.config.json is available in the active directory, the default values will be used.
 
 Default values:
 ```json
@@ -56,3 +54,6 @@ Note: TypeScript files are transpiled as part of the build process.
 **Options**:
 - `--prod`: starts the dev server in the production (output) directory
 - `--purge`: purge all messages in `.prodbuildrc/log.txt`
+
+#### `npx prodbuild init`
+Create a build.config.json file and setup the corresponding folders.
