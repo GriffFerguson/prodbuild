@@ -1,10 +1,11 @@
 #! /bin/env node
 
 const { fork } = require('child_process')
-const path = require('path')
+const {join} = require('path')
 const { Command } = require('commander');
 const program = new Command();
-const {version} = require(path.join('.', '../package.json'))
+const {version} = require(join('.', '../package.json'))
+const {root} = require("../lib/config.js")
 
 function run(script, args) {
     args = args || []
@@ -35,8 +36,8 @@ program
     .command('build')
     .description('build the website into the specified folder')
     .action(() => {
-        console.log('Starting build script...')
-        run('node_modules/prodbuild/lib/build.js')
+        console.log('Starting build script...');
+        run(join(root, '../lib/build.js'));
     })
     
 program
@@ -47,7 +48,7 @@ program
     .option('--purge', 'purge the dev server logs' , false)
     .action((action, options) => {
         console.log('Changing dev server status...')
-        run(`node_modules/prodbuild/lib/server.js`, [
+        run(join(root, `node_modules/prodbuild/lib/server.js`), [
             action,
             options.prod,
             options.purge
@@ -58,7 +59,7 @@ program
     .command('init')
     .description('create a configuration file and the necessary folders for Prodbuild')
     .action(() => {
-        run(`node_modules/prodbuild/bin/init.js`)
+        run(join(root, `node_modules/prodbuild/bin/init.js`));
     })
 
 program.parse(process.argv)
