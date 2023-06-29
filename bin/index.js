@@ -37,7 +37,7 @@ program
     .description('build the website into the specified folder')
     .action(() => {
         console.log('Starting build script...');
-        run(join(root, '../lib/build.js'));
+        run(join(root, 'node_modules/prodbuild/lib/build.js'));
     })
     
 program
