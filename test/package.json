@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prodbuild": "file:.."
+    "prodbuild": "file:..",
+    "typescript": "^5.1.6"
   }
 }
