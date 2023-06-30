@@ -61,7 +61,7 @@ function port() {
 
 //config.exclude
 function exclude() {
-    rl.question('(optional) Comma-separated list of files to ignore: ', answer => {
+    rl.question('(optional) Comma-separated list of files to ignore (no spaces): ', answer => {
         if (!answer == "") {
             var ignoreList = answer.split(',')
             res = "["
