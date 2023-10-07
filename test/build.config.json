@@ -1,5 +1,0 @@
-{
-    "output": "./dist/",
-    "entry": "./src",
-    "port": 5000
-}
