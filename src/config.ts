@@ -1,8 +1,8 @@
-const fs = require('fs');
-const {join} = require('path');
+import * as fs from "fs";
+import {join} from "path";
 
 // The project root directory
-var root = "";
+var root: string = "";
 
 // Find the location of the project root directory
 // The project root directory is where ever the build.config.json file is located
@@ -43,7 +43,7 @@ module.exports.check_rc = check_rc;
  * STATUS: information about start/stop of program functions (ex: server start, server stop)
  * ERROR: something went wrong, here's the reason
  */
-const log = (message, level) => {
+const log = (message: string, level: string) => {
     check_rc();
     var logDir = join(prc, "log.txt");
     if (!fs.existsSync(logDir)) {
@@ -54,18 +54,18 @@ const log = (message, level) => {
         );
     }
     var dt = new Date();
-    var mill = dt.getMilliseconds();
-    if (mill < 100) {
-        mill = '0' + mill.toString()
-        if (mill < 10) {
+    var mill: string;
+    if (dt.getMilliseconds() < 100) {
+        mill = '0' + dt.getMilliseconds();
+        if (dt.getMilliseconds() < 10) {
             mill = '0' + mill
         }
-    }
+    } else mill = dt.getMilliseconds().toString();
     var stamp = {
         date: `${dt.getMonth() < 9 ? ('0' + (dt.getMonth() + 1)) : (dt.getMonth() + 1)}-${dt.getDate() < 10 ? ('0' + dt.getDate()) : dt.getDate()}-${dt.getFullYear()}`,
         time: `${dt.getHours() < 10 ? '0' + dt.getHours().toString() : dt.getHours()}:${dt.getMinutes() < 10 ? '0' + dt.getMinutes().toString() : dt.getMinutes()}:${dt.getSeconds() < 10 ? ('0' + dt.getSeconds().toString()) : dt.getSeconds()}.${mill}`
     };
-    // message = message.replace(/\\n/gm)
+    var prefix: string = "";
     if (level == "info") prefix = "INFO:"
     else if (level == "error") prefix = "ERROR:"
     else if (level == "status") prefix = "STATUS:";
@@ -80,49 +80,23 @@ module.exports.log = log;
 
 // Retrieve the config from the build.config.json file in the project root
 // If there is no build.config.json, the default values will be substituted
-const config = () => {
-    var configPath = join(root, "build.config.json");
-    var configFile;
+class Config {
+    output: string;
+    entry: string;
+    port: number;
+    exclude: Array<string>;
 
-    if (fs.existsSync(configPath)) {
-        configFile = fs.readFileSync(configPath, {encoding: "utf-8"});
-        configFile = JSON.parse(configFile);
-    } else {
-        // No config file exists
-        log(`No "build.config.json" was found; default values will be used for now. Create a config file using 'npx prodbuild init'`, "error");
-        configFile = {
-            "output": join(root, "./dist/"),
-            "entry": join(root, "./src/"),
-            "port": 5000,
-            "exclude": [".ts"]
-        }
-        // Exit with default values
-        return configFile;
-    }
+    constructor() {
+        var path = join(root, "build.config.json")
+        var file;
+        if (fs.existsSync(path)) file = JSON.parse( fs.readFileSync(path, {encoding: "utf-8"}) );
+        else log(`No "build.config.json" was found; default values will be used for now. Create a config file using 'npx prodbuild init'`, "error");
 
-    configFile.output = join(root, configFile.output);
-    configFile.entry = join(root, configFile.entry);
-    configFile.port = parseInt(configFile.port);
-
-    // Individual error checking if config file does exist
-    if (!configFile.output || !fs.existsSync(configFile.output)) {
-        log(`Invalid 'output' in build.config.json. Either no value exists or the path ${configFile.output} does not exist. Using default value for now.`, "error");
-        configFile.output = join(root, "./dist/")
+        this.output = join(root, file.output) || join(root, "./src/");
+        this.entry = join(root, file.entry) || join(root, "./dist/");
+        this.port = file.port || 5000;
+        this.exclude = file.exclude || [];
+        this.exclude.push(".ts");
     }
-    if (!configFile.entry || !fs.existsSync(configFile.entry)) {
-        log(`Invalid 'entry' in build.config.json. Either no value exists or the path ${configFile.entry} does not exist. Using default value for now.`, "error");
-        configFile.entry = join(root, "./src/")
-    }
-    if (!configFile.port || !Number.isInteger(configFile.port)) {
-        log(`Invalid 'port' in build.config.json. Either no value exists or the provided value is not a valid integer. Using default for now.`, "error");
-        configFile.port = 5000;
-    }
-    if (!configFile.exclude) {
-        configFile.exclude = [];
-    }
-    configFile.exclude.push(".ts")
-
-
-    return configFile;
 }
-module.exports.config = config;
+module.exports.Config = Config;
