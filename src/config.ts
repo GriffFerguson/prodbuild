@@ -26,54 +26,16 @@ do {
 
 module.exports.root = root;
 
-// The directory for the .prodbuildrc folder
-const prc = join(root, ".prodbuildrc/");
-module.exports.prc = prc;
-
-// Checks for the existence of the .prodbuildrc in the root project directory
-const check_rc = () => {
-    if (!fs.existsSync(prc)) {
-        fs.mkdirSync(prc);
-    }
-}
-module.exports.check_rc = check_rc;
-
 /* LOGGING LEVELS:
  * INFO: normal information of program functionality
  * STATUS: information about start/stop of program functions (ex: server start, server stop)
  * ERROR: something went wrong, here's the reason
  */
 const log = (message: string, level: string) => {
-    check_rc();
-    var logDir = join(prc, "log.txt");
-    if (!fs.existsSync(logDir)) {
-        fs.writeFileSync(
-            logDir, 
-            "Prodbuild Log File\n------------------------", 
-            {encoding: "utf-8"}
-        );
-    }
-    var dt = new Date();
-    var mill: string;
-    if (dt.getMilliseconds() < 100) {
-        mill = '0' + dt.getMilliseconds();
-        if (dt.getMilliseconds() < 10) {
-            mill = '0' + mill
-        }
-    } else mill = dt.getMilliseconds().toString();
-    var stamp = {
-        date: `${dt.getMonth() < 9 ? ('0' + (dt.getMonth() + 1)) : (dt.getMonth() + 1)}-${dt.getDate() < 10 ? ('0' + dt.getDate()) : dt.getDate()}-${dt.getFullYear()}`,
-        time: `${dt.getHours() < 10 ? '0' + dt.getHours().toString() : dt.getHours()}:${dt.getMinutes() < 10 ? '0' + dt.getMinutes().toString() : dt.getMinutes()}:${dt.getSeconds() < 10 ? ('0' + dt.getSeconds().toString()) : dt.getSeconds()}.${mill}`
-    };
     var prefix: string = "";
     if (level == "info") prefix = "INFO:"
     else if (level == "error") prefix = "ERROR:"
     else if (level == "status") prefix = "STATUS:";
-    fs.appendFileSync(
-        logDir,
-        `\n[${stamp.date} ${stamp.time}]  ${prefix} ${message}`,
-        {encoding: "utf-8"}
-    );
     console.log(`${prefix} ${message}`)
 }
 module.exports.log = log;
