@@ -1,5 +1,5 @@
 // HTML
-function html(file) {
+export function html(file: string): string {
     file = file.replace(/>\s*\n*\s*</gmi,'><');
     var i = 0;
     var scriptIndex = getTagOccurences('script', file)
@@ -33,15 +33,15 @@ function html(file) {
 
 
 // CSS
-function css(file) {
-    // Most minification
+export function css(file: string): string {
+    // Most of the minification
     /* 
-    First capturing group "(?:(?<=:)\s|(?<=.*)\s(?={))": Made of boolean with two matches
-        First match "(?<=:)\s*" matches any space preceded by a colon
-        Second match "(?<=.*)\s*(?={)" matches any space preceded by any number of characters and followed by an opening bracket
-        Third match "(?<=,)\s*" matches any space preceded by a comma
-    Second capturing group "(?:\n*^\s*)": Replaces newlines and whitespaces after lines, converts to one line
-    */
+     * First capturing group "(?:(?<=:)\s|(?<=.*)\s(?={))": Made of boolean with two matches
+     *     First match "(?<=:)\s*" matches any space preceded by a colon
+     *     Second match "(?<=.*)\s*(?={)" matches any space preceded by any number of characters and followed by an opening bracket
+     *     Third match "(?<=,)\s*" matches any space preceded by a comma
+     * Second capturing group "(?:\n*^\s*)": Replaces newlines and whitespaces after lines, converts to one line
+     */
     file = file.replace(/(?:(?<=:)\s*|(?<=.*)\s*(?={)|(?<=,)\s*)|(?:\n*^\s*)/gmi, '')
 
     // Remove comments
@@ -55,19 +55,32 @@ function css(file) {
     return file
 }
 
-function getTagOccurences(tag, data) {
-    instances = {total: 0, indexStart: [], indexEnd: []}
+function getTagOccurences(tag: string, data: string) {
+    var instances: {
+        total: number | 0,
+        indexStart: Array<number>,
+        indexEnd: Array<number>
+    } = {
+        total: 0, // Number of instances of the element
+        indexStart: [], // Starting location 
+        indexEnd: []
+    };
+    
+    // While there is an instance of the tag...
     do {
+        // Find the start and end of the full element
         var start = data.indexOf(`<${tag}>`)
         var end = data.indexOf(`</${tag}>`)
+        
+        // Incremement the counter
         instances.total += 1;
-        instances.indexStart.push(start + (tag.length + 2))
+
+        // Add the start and end indexes of the inner content to the corresponding arrays
+        instances.indexStart.push(start + (tag.length + 2)) // Add 2 to account for < and >
         instances.indexEnd.push(end)
+
+        // loop again with truncated data
         data = data.substring(end + (tag.length + 3))
     } while (data.indexOf(tag) != -1)
     return instances
 }
-
-//Export
-exports.html = html
-exports.css = css

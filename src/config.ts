@@ -2,7 +2,7 @@ import * as fs from "fs";
 import {join} from "path";
 
 // The project root directory
-var root: string = "";
+export var root: string = "";
 
 // Find the location of the project root directory
 // The project root directory is where ever the build.config.json file is located
@@ -24,25 +24,22 @@ do {
     prevDir = searchDir;
 } while (!isRootDir)
 
-module.exports.root = root;
-
 /* LOGGING LEVELS:
  * INFO: normal information of program functionality
  * STATUS: information about start/stop of program functions (ex: server start, server stop)
  * ERROR: something went wrong, here's the reason
  */
-const log = (message: string, level: string) => {
+export const log = (message: string, level: string) => {
     var prefix: string = "";
     if (level == "info") prefix = "INFO:"
     else if (level == "error") prefix = "ERROR:"
     else if (level == "status") prefix = "STATUS:";
     console.log(`${prefix} ${message}`)
 }
-module.exports.log = log;
 
 // Retrieve the config from the build.config.json file in the project root
 // If there is no build.config.json, the default values will be substituted
-class Config {
+export class Config {
     output: string;
     entry: string;
     port: number;
@@ -61,4 +58,3 @@ class Config {
         this.exclude.push(".ts");
     }
 }
-module.exports.Config = Config;
